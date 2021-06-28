@@ -2,9 +2,9 @@ package rpc
 
 import (
 	"context"
-	"go-grpc-server/config"
-	"go-grpc-server/pkg/stream"
-	"go-grpc-server/protobuf"
+	"github.com/vsantosalmeida/go-grpc-server/config"
+	"github.com/vsantosalmeida/go-grpc-server/pkg/stream"
+	"github.com/vsantosalmeida/go-grpc-server/protobuf"
 	"google.golang.org/protobuf/proto"
 	"log"
 )

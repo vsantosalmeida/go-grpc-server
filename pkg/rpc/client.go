@@ -1,7 +1,7 @@
 package rpc
 
 import (
-	"go-grpc-server/protobuf"
+	"github.com/vsantosalmeida/go-grpc-server/protobuf"
 	"google.golang.org/grpc"
 	"log"
 )

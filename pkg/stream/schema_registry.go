@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"go-grpc-server/config"
+	"github.com/vsantosalmeida/go-grpc-server/config"
 	"io/ioutil"
 	"log"
 	"net/http"

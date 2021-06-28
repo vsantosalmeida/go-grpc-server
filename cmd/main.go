@@ -2,10 +2,10 @@ package main
 
 import (
 	"fmt"
-	"go-grpc-server/config"
-	"go-grpc-server/pkg/rpc"
-	"go-grpc-server/pkg/stream"
-	"go-grpc-server/protobuf"
+	"github.com/vsantosalmeida/go-grpc-server/config"
+	"github.com/vsantosalmeida/go-grpc-server/pkg/rpc"
+	"github.com/vsantosalmeida/go-grpc-server/pkg/stream"
+	"github.com/vsantosalmeida/go-grpc-server/protobuf"
 	"google.golang.org/grpc"
 	"log"
 	"net"

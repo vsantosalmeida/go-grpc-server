@@ -2,7 +2,7 @@ package stream
 
 import (
 	"encoding/binary"
-	"go-grpc-server/config"
+	"github.com/vsantosalmeida/go-grpc-server/config"
 	"gopkg.in/confluentinc/confluent-kafka-go.v1/kafka"
 	"log"
 )

@@ -1,9 +1,11 @@
 package rpc
 
 import (
-	"github.com/vsantosalmeida/go-grpc-server/protobuf"
-	"google.golang.org/grpc"
 	"log"
+
+	"github.com/vsantosalmeida/go-grpc-server/protobuf"
+
+	"google.golang.org/grpc"
 )
 
 func NewRpcClient(opts []grpc.DialOption, serverAddr string) (protobuf.PersonReceiverClient, error) {

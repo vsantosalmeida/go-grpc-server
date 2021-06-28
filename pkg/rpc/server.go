@@ -2,11 +2,13 @@ package rpc
 
 import (
 	"context"
+	"log"
+
 	"github.com/vsantosalmeida/go-grpc-server/config"
 	"github.com/vsantosalmeida/go-grpc-server/pkg/stream"
 	"github.com/vsantosalmeida/go-grpc-server/protobuf"
+
 	"google.golang.org/protobuf/proto"
-	"log"
 )
 
 type server struct {

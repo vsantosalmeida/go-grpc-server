@@ -5,11 +5,12 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/vsantosalmeida/go-grpc-server/config"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"time"
+
+	"github.com/vsantosalmeida/go-grpc-server/config"
 )
 
 const timeoutDuration = 3 * time.Second

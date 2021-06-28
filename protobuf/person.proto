@@ -1,0 +1,28 @@
+syntax="proto3";
+
+package person;
+
+option go_package = ".;protobuf";
+
+service PersonReceiver {
+    rpc CreateEvent (Person) returns (Reply) {}
+}
+
+message Person {
+    string key = 1;
+    string first_name = 2;
+    string last_name = 3;
+    string birth_date = 4;
+    string parent_key = 5;
+    bool sent = 6;
+    Address address = 7;
+}
+
+message Address {
+   string city = 1;
+   string state = 2;
+}
+
+message Reply {
+    bool created = 1;
+}

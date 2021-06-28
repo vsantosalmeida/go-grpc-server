@@ -14,7 +14,6 @@ func NewRpcClient(opts []grpc.DialOption, serverAddr string) (protobuf.PersonRec
 		log.Printf("failed to dial to grpc server: %v", err)
 		return nil, err
 	}
-	defer conn.Close()
 
 	return protobuf.NewPersonReceiverClient(conn), nil
 }

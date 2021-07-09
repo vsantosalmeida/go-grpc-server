@@ -2,9 +2,11 @@ package stream
 
 import (
 	"encoding/binary"
-	"github.com/vsantosalmeida/go-grpc-server/config"
-	"gopkg.in/confluentinc/confluent-kafka-go.v1/kafka"
 	"log"
+
+	"github.com/vsantosalmeida/go-grpc-server/config"
+
+	"gopkg.in/confluentinc/confluent-kafka-go.v1/kafka"
 )
 
 // kafkaProducer contains the kafka producer client

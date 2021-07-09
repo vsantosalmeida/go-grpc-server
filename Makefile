@@ -5,10 +5,18 @@ VERSION=1.0.0
 clean:
 	@ rm -rf bin/*
 
-build-api:
+build-server:
 	@ echo " ---         BUILDING        --- "
-	@ go build -ldflags "-s -w -X main.version=$(VERSION)" -o $(BINARY_NAME) cmd/main.go
+	@ $(MAKE) clean
+	@ go build -a -v -tags musl -ldflags "-s -w -X main.version=$(VERSION)" -o $(BINARY_NAME) cmd/main.go
 	@ echo " ---      FINISH BUILD       --- "
+
+build-server-docker:
+	@ docker build --no-cache -t larolman/go-grpc-server .
+
+push-server-docker-image:
+	@ docker login
+	@ docker push $(DOCKER_REPO)/go-grpc-server:latest
 
 start-kafka:
 	@ docker-compose up -d

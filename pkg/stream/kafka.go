@@ -15,7 +15,7 @@ type kafkaProducer struct {
 
 func NewKafkaProducer() (Producer, error) {
 	cfg := &kafka.ConfigMap{
-		config.BootstrapServers: config.KafkaHost,
+		config.BootstrapServers: config.GetKafkaHost(),
 	}
 
 	p, err := kafka.NewProducer(cfg)

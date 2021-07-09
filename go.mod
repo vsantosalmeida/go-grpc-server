@@ -1,6 +1,6 @@
 module github.com/vsantosalmeida/go-grpc-server
 
-go 1.17
+go 1.16
 
 require (
 	github.com/confluentinc/confluent-kafka-go v1.7.0 // indirect

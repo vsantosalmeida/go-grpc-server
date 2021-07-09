@@ -16,11 +16,13 @@ const timeoutDuration = 3 * time.Second
 
 type service struct {
 	client *http.Client
+	host   string
 }
 
 func NewSchemaRegistryAPI() SchemaRegistry {
 	return &service{
 		client: &http.Client{},
+		host:   config.GetSchemaRegistryHost(),
 	}
 }
 
@@ -66,5 +68,5 @@ func (s *service) GetSchemaID(subj string) (int, error) {
 }
 
 func (s *service) getSubjPath(sbj string) string {
-	return fmt.Sprintf("%s/subjects/%s/versions/latest", config.SchemaRegistryHost, sbj)
+	return fmt.Sprintf("%s/subjects/%s/versions/latest", s.host, sbj)
 }

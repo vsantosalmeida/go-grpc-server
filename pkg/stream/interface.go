@@ -2,7 +2,7 @@ package stream
 
 // Producer interface
 type Producer interface {
-	ToProtoBytes(recordValue []byte, sbj string) []byte
+	ToProtoBytes(recordValue []byte, sbj string) ([]byte, error)
 	Write(msg []byte, topic string) error
 	Close()
 }

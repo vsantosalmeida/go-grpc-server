@@ -66,11 +66,11 @@ func (k *kafkaProducer) Close() {
 	k.client.Close()
 }
 
-func (k *kafkaProducer) ToProtoBytes(messageBytes []byte, sbj string) []byte {
+func (k *kafkaProducer) ToProtoBytes(messageBytes []byte, sbj string) ([]byte, error) {
 	schemaIDBytes := make([]byte, 4)
 	schemaID, err := k.srAPI.GetSchemaID(sbj)
 	if err != nil {
-		log.Printf("failed to retrieve schemaID err:%q", err)
+		return nil, err
 	}
 
 	binary.BigEndian.PutUint32(schemaIDBytes, uint32(schemaID))
@@ -81,5 +81,5 @@ func (k *kafkaProducer) ToProtoBytes(messageBytes []byte, sbj string) []byte {
 	recordValue = append(recordValue, byte(0))
 	recordValue = append(recordValue, messageBytes...)
 
-	return recordValue
+	return recordValue, nil
 }

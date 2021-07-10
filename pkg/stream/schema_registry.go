@@ -57,7 +57,7 @@ func (s *service) GetSchemaID(subj string) (int, error) {
 
 		err = json.Unmarshal(b, &schema)
 		if err != nil {
-			log.Printf("failed do deserialize subject struct err:%q", err)
+			log.Printf("failed to deserialize subject struct err:%q", err)
 			return 0, err
 		}
 

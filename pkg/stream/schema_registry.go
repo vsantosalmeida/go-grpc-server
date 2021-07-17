@@ -1,7 +1,6 @@
 package stream
 
 import (
-	"context"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -22,8 +21,10 @@ type service struct {
 
 func NewSchemaRegistryAPI() SchemaRegistry {
 	return &service{
-		client: &http.Client{},
-		host:   config.GetSchemaRegistryHost(),
+		client: &http.Client{
+			Timeout: timeoutDuration,
+		},
+		host: config.GetSchemaRegistryHost(),
 	}
 }
 
@@ -34,10 +35,7 @@ type subject struct {
 }
 
 func (s *service) GetSchemaID(subj string) (int, error) {
-	ctx, cancel := context.WithTimeout(context.Background(), timeoutDuration)
-	defer cancel()
-
-	req, err := http.NewRequestWithContext(ctx, http.MethodGet, s.getSubjPath(subj), nil)
+	req, err := http.NewRequest(http.MethodGet, s.getSubjPath(subj), nil)
 	if err != nil {
 		log.Printf("could not create a request err:%q", err)
 		return 0, err

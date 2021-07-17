@@ -2,8 +2,10 @@ package main
 
 import (
 	"fmt"
+	"google.golang.org/grpc/keepalive"
 	"log"
 	"net"
+	"time"
 
 	"github.com/vsantosalmeida/go-grpc-server/config"
 	"github.com/vsantosalmeida/go-grpc-server/pkg/rpc"
@@ -19,7 +21,12 @@ func main() {
 		log.Fatalf("failed to listen: %v", err)
 	}
 
-	var opts []grpc.ServerOption
+	opts := []grpc.ServerOption{
+		grpc.KeepaliveParams(keepalive.ServerParameters{
+			MaxConnectionAge: time.Second * 10,
+		}),
+	}
+
 	grpcServer := grpc.NewServer(opts...)
 
 	p, err := stream.NewKafkaProducer()

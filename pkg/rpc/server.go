@@ -34,7 +34,7 @@ func (s *server) CreateEvent(ctx context.Context, p *protobuf.Person) (*protobuf
 
 	recordValue, err := s.producer.ToProtoBytes(messageBytes, config.PersonSubjName)
 	if err != nil {
-		log.Printf("Failed to send event to stream err: %q", err)
+		log.Printf("Failed to create message err: %q", err)
 		return errorReply, err
 	}
 

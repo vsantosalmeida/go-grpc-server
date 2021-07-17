@@ -5,7 +5,7 @@ metadata:
   labels:
     app: go-grpc-server
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: go-grpc-server
@@ -31,7 +31,19 @@ metadata:
 spec:
   selector:
     app: go-grpc-server
-  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 9090
+      targetPort: 9090
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: go-grpc-server-headless
+spec:
+  clusterIP: None
+  selector:
+    app: go-grpc-server
   ports:
     - protocol: TCP
       port: 9090
